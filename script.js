@@ -1,10 +1,12 @@
 // Function to ask user to input password length
 var getLength = function (length) {
   // !!!NEED FUTURE LOGIC FOR NOT ACCEPTING NON-NUMBERS!!!
-  while (length === null || length === "" || length < 8 || length > 128) {
+  while (length === null || length === "" || length < 8 || length > 128 || isNaN(length)) {
     length = window.prompt('How many characters would you like in the password?');
-    if (length === null || length === "" || length < 8 || length > 128) {
+    console.log(parseInt(length));
+    if (length === null || length === "" || length < 8 || length > 128  || isNaN(length)) {
       window.alert('Please enter a value at least 8 and no more than 128');
+      console.log(parseInt(length));
     }
   }
   return length;
@@ -92,8 +94,6 @@ var generatePassword = function () {
 
   return finalPwd;
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
